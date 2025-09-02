@@ -19,6 +19,7 @@ type Mage struct {
 
 	mirrorImages []*MirrorImage
 
+	AlterTime            *core.Spell
 	Combustion           *core.Spell
 	Ignite               *core.Spell
 	LivingBomb           *core.Spell
@@ -34,6 +35,7 @@ type Mage struct {
 	IcyVeins             *core.Spell
 	Icicle               *core.Spell
 
+	AlterTimeAura      *core.Aura
 	InvocationAura     *core.Aura
 	RuneOfPowerAura    *core.Aura
 	PresenceOfMindAura *core.Aura
@@ -174,7 +176,8 @@ const (
 	FireSpellMaxTimeUntilResult       = 750 * time.Millisecond
 	HeatingUpDeactivateBuffer         = 250 * time.Millisecond
 	MageSpellFlagNone           int64 = 0
-	MageSpellArcaneBarrage      int64 = 1 << iota
+	MageSpellAlterTime          int64 = 1 << iota
+	MageSpellArcaneBarrage
 	MageSpellArcaneBlast
 	MageSpellArcaneExplosion
 	MageSpellArcanePower
@@ -232,7 +235,7 @@ const (
 		MageSpellDragonsBreath | MageSpellFireBlast | MageSpellFireball | MageSpellFlamestrike | MageSpellFrostbolt | MageSpellFrostfireBolt | MageSpellFrozenOrbTick |
 		MageSpellIceLance | MageSpellLivingBombExplosion | MageSpellLivingBombDot | MageSpellPyroblast | MageSpellPyroblastDot | MageSpellScorch | MageSpellInfernoBlast
 	MageSpellInstantCast = MageSpellArcaneBarrage | MageSpellArcaneMissilesCast | MageSpellArcaneMissilesTick |
-		MageSpellFireBlast | MageSpellArcaneExplosion | MageSpellInfernoBlast |
+		MageSpellFireBlast | MageSpellArcaneExplosion | MageSpellInfernoBlast | MageSpellPyroblastDot |
 		MageSpellCombustion | MageSpellConeOfCold | MageSpellDeepFreeze |
 		MageSpellDragonsBreath | MageSpellIceLance | MageSpellManaGems | MageSpellMirrorImage |
 		MageSpellPresenceOfMind | MageSpellLivingBombDot | MageSpellFrostBomb | MageSpellNetherTempest | MageSpellNetherTempestDot
